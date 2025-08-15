@@ -22,39 +22,6 @@
                 </main>
                 <br>
 
-                <footer id="lastupdated">Last updated:</footer>
-
-                <script>
-                        var date = 'Unknown';
-
-                        fetch(
-                                "https://api.github.com/repos/sphis-sinco/Palipans/branches/main"
-                        )
-                                .then((response) => {
-                                        response.json().then((json) => {
-                                                console.log(json);
-                                                
-                                                /*this.setState({
-                                                        author: json.commit
-                                                                .author.login,
-                                                        branch: json.name,
-                                                        date: json.commit.commit
-                                                                .author.date,
-                                                        sha: json.commit.sha,
-                                                        link: json._links.html,
-                                                });*/
-
-                                                date = json.commit.commit.author.date
-                                        });
-                                })
-                                .catch((error) => {
-                                        console.log(error);
-                                });
-                        
-                        document.getElementById('lastupdated').innerHTML = 'Last Updated: ' + date
-
-                </script>
-
                 <script src="comicsList.js"></script>
         </body>
 </html>
