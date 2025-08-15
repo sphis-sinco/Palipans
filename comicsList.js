@@ -15,7 +15,7 @@ var addSkit = function (name = '', rel = "", href = "") {
 };
 
 skits = [];
-addSkit("Index", "8/15/2025", "index.html");
+addSkit("Dummy Comic", "8/15/2025", "comics/dummyComic/comic.html");
 
 var list = document.getElementById("comics-list");
 
