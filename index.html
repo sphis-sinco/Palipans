@@ -1,19 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Palipans</title>
-        <link rel="stylesheet" href="main.css">
-</head>
-<body>
-        <header>
-                <h1>Palipans</h1>
-                <p>- Indie Comic Hosting Site-</p>
-        </header>
+        <head>
+                <meta charset="UTF-8" />
+                <meta
+                        name="viewport"
+                        content="width=device-width, initial-scale=1.0"
+                />
+                <title>Palipans</title>
+                <link rel="stylesheet" href="main.css" />
+        </head>
+        <body>
+                <header>
+                        <h1>Palipans</h1>
+                        <p>- Indie Comic Hosting Site-</p>
+                </header>
 
-        <footer>
-                Last updated:
-        </footer>
-</body>
+                <footer id="lastupdated">Last updated:</footer>
+
+                <script>
+                        var date = 'Unknown';
+
+                        fetch(
+                                "https://api.github.com/repos/sphis-sinco/Palipans/branches/main"
+                        )
+                                .then((response) => {
+                                        response.json().then((json) => {
+                                                console.log(json);
+                                                
+                                                /*this.setState({
+                                                        author: json.commit
+                                                                .author.login,
+                                                        branch: json.name,
+                                                        date: json.commit.commit
+                                                                .author.date,
+                                                        sha: json.commit.sha,
+                                                        link: json._links.html,
+                                                });*/
+
+                                                date = json.commit.commit.author.date
+                                        });
+                                })
+                                .catch((error) => {
+                                        console.log(error);
+                                });
+                        
+                        document.getElementById('lastupdated').innerHTML = 'Last Updated: ' + date
+
+                </script>
+        </body>
 </html>
